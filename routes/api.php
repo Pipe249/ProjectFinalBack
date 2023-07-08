@@ -3,7 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\api\contactoController;
-use App\Http\api\userController;
+use App\Http\Controllers\api\userController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -21,6 +21,9 @@ Route::post('/crearContactos', [contactoController::Class, 'Create']);
 
 /* rutas de ejercicio CRUD */
 Route::post('/registrarUsuario', [userController::Class, 'Create']);
+Route::get('/consultarUsuarios', [userController::Class, 'Read']);
+Route::put('/actualizarUsuario/{id}', [userController::Class, 'Update']);
+Route::delete('/eliminarUsuario/{id}', [userController::Class, 'Delete']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
